@@ -1,7 +1,7 @@
 // server.js (Express.js backend)
 
 const express = require('express');
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser'); //Hi DB002
 const mongoose = require('mongoose');
 const cors = require('cors'); 
 
