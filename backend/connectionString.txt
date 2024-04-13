@@ -1,0 +1,3 @@
+mongodb+srv://priyanshshajan03:jyacGZRxq94G0mEH@cluster0.dpkfss5.mongodb.net/
+mongodb://localhost:27017
+mongodb://localhost:27017
