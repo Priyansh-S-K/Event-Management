@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://localhost:27017/eventManagement', {
+mongoose.connect('mongodb+srv://priyanshshajan03:jyacGZRxq94G0mEH@cluster0.dpkfss5.mongodb.net/', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => {
@@ -34,10 +34,20 @@ const eventSchema = new mongoose.Schema({
 
 const Event = mongoose.model('Event', eventSchema);
 
-app.post('/api/events', async (req, res) => {
+app.post('/api/events', function (req, res) {
   try {
-    const event = new Event(req.body);
-    await event.save();
+    let event = new Event({
+        eventId: req.body.eventId,
+        eventName: req.body.eventName,
+        date: req.body.date,
+        time: req.body.time,
+        organization: req.body.organization,
+        location: req.body.location,
+        description: req.body.description,
+        image: req.body.image,
+        link: req.body.link
+    });
+    event.save();
     res.status(201).json(event);
   } catch (err) {
     res.status(400).json({ error: err.message });
